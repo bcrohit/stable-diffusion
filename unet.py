@@ -2,7 +2,9 @@ import math
 import torch
 import torch.nn as nn
 from einops.layers.torch import Rearrange
+import torch.nn.functional as F
 
+device     = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class GELUConvBlock(nn.Module):
     def __init__(self, in_ch, out_ch, group_size):
